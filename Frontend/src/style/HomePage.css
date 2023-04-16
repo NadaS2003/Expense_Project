@@ -1,0 +1,44 @@
+body{
+  overflow: hidden;
+}
+.income{
+  width: 420px;
+  height: 345px;
+  margin-left: 120px;
+  margin-top: 80px;
+  padding-left: 20px;
+  padding-top: 20px;
+  border: 3px black dashed;
+  border-radius: 20px;
+  text-shadow: 1px 1px 2px black, 0 0 25px rgb(253, 253, 255), 0 0 5px rgb(222, 250, 246);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.33);
+}
+.expense{
+  width: 430px;
+  height: 350px;
+  margin-left: 700px;
+  margin-top: -345px;
+  padding-left: 20px;
+  padding-top: 20px;
+  border: 3px black dashed;
+  border-radius: 20px;
+  text-shadow: 1px 1px 2px black, 0 0 25px rgb(253, 253, 255), 0 0 5px rgb(222, 250, 246);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.33);
+} 
+#add{
+  margin-left: 310px;
+  margin-top: -66px;
+}
+.greet{
+  width: 250px;
+  height: 20px;
+  margin-top: 40px;
+  margin-left: 120px;
+  font-size: x-large;
+}
+.greet p{
+  font-size: 40px;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px black, 0 0 25px rgb(253, 253, 255), 0 0 5px rgb(222, 250, 246);
+    padding-bottom: 5px;
+}

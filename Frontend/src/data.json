@@ -1,0 +1,25 @@
+ [{
+      "id": 1,
+      "expense_type": "Transportation",
+      "expense": 500
+      
+    },
+    {
+      "id": 2,
+      "expense_type":  "Food",
+      "expense":  100
+      
+    },
+    {
+      "id": 3,
+      "expense_type": "Treatment",
+      "expense":  200
+      
+    },
+    {
+      "id": 4,
+      "expense_type": "Rent",
+      "expense":  100
+    
+    }
+ ]
