@@ -6,15 +6,16 @@ const generateToken = require("../../middleware/generateToken");
 //Register
 const registerUser = expressAsyncHandler(async(req,res)=>{
   //optional chaining
-    const {name,email,password,phone_number} = req?.body;
+    const {name,username,email,password} = req?.body;
 
     // check if user is already registered
-    const userExists = await User.findOne({email});
+    const userExiste = await User.findOne({email });
+    const userExistu = await User.findOne({username });
 
-    if(userExists) throw new Error("User already exists");
+    if(userExiste || userExistu ) throw new Error("User already exists");
     try{
     // create new user
-    const user = await User.create({name,email,password,phone_number});   
+    const user = await User.create({name,username,email,password});   
     res.status(200).json(user);
 
    }catch(error){
@@ -45,9 +46,8 @@ const registerUser = expressAsyncHandler(async(req,res)=>{
             _id : userFound?._id,
             name : userFound?.name,
             email : userFound?.email,
-            phone_number : userFound?.phone_number,
+            username : userFound?.username,
             token : generateToken(userFound?._id),
-
           });
         }else{
             res.status(401);
