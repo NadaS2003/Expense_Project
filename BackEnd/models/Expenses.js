@@ -15,7 +15,12 @@ const expenseSchema = mongoose.Schema({
     type : mongoose.Schema.Types.ObjectId , // must be MONGOB ID 
     ref : 'User' ,
     required : [true ,"User ID is required"]
-  }
+  },
+  expireAt: {
+  type: Date,
+  default: Date.now,
+  index: { expires: '43200m' },
+}
 },{
   timestamp : true
 });
