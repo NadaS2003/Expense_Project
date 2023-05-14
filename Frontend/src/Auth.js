@@ -9,7 +9,28 @@ import {
   Card,
   Form,
 } from "react-bootstrap";
+import {useDispatch} from 'react-redux';
+import  {useFormik} from ' formik';
+import {loginUserAction} from "../../redux/slices/users/usersSlices"
 
+
+
+const login = ()=>{
+  //dispatch
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const dispatch = useDispatch();
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const formik = useFormik({
+    initialValues:{
+      email: "",
+      password: "",
+    },
+    onSubmit: values =>{
+      dispatch(loginUserAction(values));
+    }
+  })
+}
+// eslint-disable-next-line import/no-anonymous-default-export
 export default function () {
   let [authMode, setAuthMode] = useState("signin")
 
@@ -93,12 +114,12 @@ export default function () {
                     <Form.Group
                       as={Col}
                       className="mb-3"
-                      controlId="formPhoneNumber"
+                      controlId="formUserName"
                     >
-                      <Form.Label>Phone Number</Form.Label>
+                      <Form.Label>Your user name</Form.Label>
                       <Form.Control
-                        type="number"
-                        placeholder="Enter phone number"
+                        type="text"
+                        placeholder="Enter user name"
                       />
                     </Form.Group>
                   </Row>
