@@ -4,12 +4,18 @@ const mongoose = require('mongoose');
 const incomeSchema = mongoose.Schema({
   balance : {
     required : [true ,"Balance is required"],
-    type : Number
+    type : Number,
+   
 },
   user : {
     type : mongoose.Schema.Types.ObjectId , // must be MONGOB ID 
     ref : 'User' ,
     required : [true ,"User ID is required"]
+},
+  expireAt: {
+  type: Date,
+  default: Date.now,
+  index: { expires: '43200m' },
 }
 },{
   timestamp : true // time of created and last modification
