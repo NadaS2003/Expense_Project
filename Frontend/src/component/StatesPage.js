@@ -1,11 +1,10 @@
-import React, {Component} from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SideBar from './SideBar';
 import  '../style/Income.css';
- import  {UserData}  from "./UserData ";
- import { useState } from "react";
-import Chart from 'react-google-charts'
-
+import  {UserData}  from "./UserData ";
+import { useState } from "react";
+import { Doughnut } from 'react-chartjs-2';
 
 const StatesPage = ()=>{
   const [salary, setSalary] = useState(UserData[0].Salary);
@@ -22,23 +21,21 @@ const StatesPage = ()=>{
     UserData[0].Salary -
       UserData.slice(1).reduce((total, expense) => total + expense.expense, 0)
   );
-    const pieData = [
-        ['Task', 'Hours per Day'],
-        ['Remain', re],
-        ['Expense',ex],
- 
-]
-const pieOptions = {
- slices: [
+
+const data = {
+    labels: ['Remain','Expense'],
+    datasets: [
         {
-            color: '#8AF724',
-        },
-        {
-            color: '#F7243E',
-        },
+            data: [re,ex],
+            borderColor: ['rgba(255,206,86,0.2)'],
+            backgroundColor: ['#8AF724',
+            '#F7243E' ],
+            pointBackgroundColor: 'rgba(255,206,86,0.2)',
+        }
+        
     ]
-  ,pieHole: 0.4,
 }
+
 return( 
   <div className='container'>
      <SideBar/>, 
@@ -55,17 +52,11 @@ return(
         <p>{remainingAmount}</p>
       </div>
 
-       <div className="container" style={{ width: "400px"  , margin: "-530px  0px 100px 470px" }}>
+      
+       <div className="container" style={{ width: "420px"  , margin: "-530px  0px 100px 570px" }}>
+        
         <p id="so">Statistics</p>
-        <Chart
-          width={'900px'}
-          height={'420px'}
-          chartType="PieChart"
-          loader={<div>Loading Chart</div>}
-          data={pieData}
-          options={pieOptions}
-          rootProps={{ 'data-testid': '3' }}
-        />
+        <Doughnut data={ data}  />
       </div>
 			
   </div>
